@@ -1,4 +1,5 @@
 import java.util.*; 
+import java.io.*; 
 /**
  * 
  *
@@ -14,16 +15,16 @@ public class ExperimentController
     public static  Integer currentNumbers; //the actual type of array used 
     private static Integer min=0; //minimum number generated 
     private static Integer max=5000; //maximum number generated
-    private static Integer seeds=12353894; //the seeds of the random 
+    private static Integer seeds=56153333; //the seeds of the random 
 
-    public static void main(){
+    public static void main()  {
+        Integer[] k = {10};
         Integer[] smallData = {100,200,300,400,500,600,700,800,900};//array containing the small elements numbers 
-        Integer[] mediumData = {1000,2000,3000,4000,50000,6000,7000,80000,90000};//array containing the  medium elements numbers 
-        Integer[] largeData = {10000,20000,30000,40000,500000,60000,70000,800000,900000}; //array containing the large elements numbers 
-        numberOfElements=mediumData; // the curent element numbers 
+        Integer[] mediumData = {1000,2000,3000,4000,5000,6000,7000,8000,9000};//array containing the  medium elements numbers 
+        Integer[] largeData = {10000,20000,30000,40000,50000,60000,70000,80000,90000}; //array containing the large elements numbers 
+        numberOfElements=largeData; // the curent element numbers 
 
         testQuickSortMediamPivot();
-
     }
 
     /**
@@ -34,21 +35,32 @@ public class ExperimentController
     }
 
     /**
+     * Print Data into a csv file 
+     * use only when to export data into file 
+     * 
+     */
+    public static void writeCSV()throws FileNotFoundException{
+        PrintStream out = new PrintStream(new FileOutputStream("output.csv"));
+        System.setOut(out); 
+    }
+
+    /**
      * Run a test on front sort using different sorting algorithm 
      * 
      */
     public static void testQuickSortMediamPivot() {
-        System.out.println("Time for sorting different Array using quick Sort and the pivot as first element"); 
 
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println("Sorted Array: "+timeQuickSortMedianPivot()); 
+            // generateSortedArray();
+            // System.out.println("Array Size: "+array.length); 
+            // System.out.println("Sorted Array: "+timeBubbleSort()); 
+            //printArray(); 
             generateReverseSortedArray(); 
-            System.out.println("Reverse Array: "+timeQuickSortMedianPivot()); 
-            generateRandomListArray(); 
-            System.out.println("Random Array: "+timeQuickSortMedianPivot()); 
-            generatePartiallySortedArray(); 
-            System.out.println("Partially Sorted Array: "+timeQuickSortFrontPivot()); 
+            System.out.println("Array Size,"+array.length+","+timeInsertionSort());
+            //generateRandomListArray(); 
+            //System.out.println("Random Array: "+timeQuickSortMedianPivot()); 
+            //generatePartiallySortedArray(); 
+            //System.out.println("Partially Sorted Array: "+timeQuickSortFrontPivot()); 
 
         }  
 
@@ -70,11 +82,10 @@ public class ExperimentController
      * 
      */
     public static void generateSortedArray() {
-        Random random = new Random(seeds);
         array=new Integer [numberOfElements[currentNumbers]];
         for (int i = 0; i < array.length; i++) {
-            array[i]=random.nextInt(max - min) + min; }
-        Arrays.sort(array);
+            array[i]= i;}
+
     }    
 
     /**
@@ -82,11 +93,10 @@ public class ExperimentController
      * 
      */
     public static void generateReverseSortedArray() {
-        Random random = new Random(seeds);
         array=new Integer [numberOfElements[currentNumbers]];
-        for (int i = 0; i < array.length; i++) {
-            array[i]=random.nextInt(max - min) + min; }
-
+        for (int j = 0; j < array.length; j++) {
+            array[j] = array.length - 1 - j; 
+        }
     } 
 
     /**
@@ -100,9 +110,27 @@ public class ExperimentController
         for (int j = 0; j < array.length; j = j + 2) {
 
             array[j] = random.nextInt((max - min) + 1) + min; // Assigns the index a value in the range
-            array[j+1] = random.nextInt((max - min) + 1) + min; // Assigns the next index a value in the range
+            array[j+1] = array[j]+1;
         }
 
+    } 
+
+    /**
+     * Generate array with partially sorted array 
+     * 
+     */
+    public static void generateHalfSortedArray() {
+        Random random = new Random(currentNumbers);
+        array=new Integer[numberOfElements[currentNumbers]];
+
+        for (int j = 0; j < array.length/2; j ++) {
+
+            array[j] = j;
+        }
+        for (int j = array.length/2; j < array.length; j ++) {
+
+            array[j] = random.nextInt((max - (array.length/2)) + 1) + (array.length/2);
+        }
     } 
 
     /**

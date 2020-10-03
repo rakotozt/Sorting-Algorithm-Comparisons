@@ -1,0 +1,19 @@
+Time for sorting different Array using quick Sort and the pivot as first element
+Array Size: 1000
+Sorted Array: 8
+Array Size: 2000
+Sorted Array: 4
+Array Size: 3000
+Sorted Array: 22
+Array Size: 4000
+Sorted Array: 15
+Array Size: 5000
+Sorted Array: 20
+Array Size: 6000
+Sorted Array: 28
+Array Size: 7000
+Sorted Array: 37
+Array Size: 8000
+Sorted Array: 54
+Array Size: 9000
+Sorted Array: 69

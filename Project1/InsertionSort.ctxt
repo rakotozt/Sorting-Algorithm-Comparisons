@@ -2,7 +2,7 @@
 comment0.target=InsertionSort
 comment1.params=
 comment1.target=InsertionSort()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ InsertionSort\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ InsertionSort\r\n
 comment2.params=A
 comment2.target=void\ sort(java.lang.Comparable[])
 comment3.params=A\ nextPos

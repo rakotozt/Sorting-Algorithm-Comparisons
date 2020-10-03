@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=QuickSortFrontPivot
+comment1.params=A\ low\ high
+comment1.target=java.lang.Comparable\ getPivot(java.lang.Comparable[],\ int,\ int)
+numComments=2

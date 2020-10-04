@@ -1,0 +1,50 @@
+ReverseSorted Array For QuickSortFrontPivot
+1000,2
+2000,1
+3000,1
+4000,1
+5000,1
+6000,3
+7000,1
+8000,2
+9000,2
+Sorted Array For QuickSortFrontPivot
+1000,0
+2000,0
+3000,0
+4000,1
+5000,1
+6000,2
+7000,1
+8000,2
+9000,2
+RandomListArray QuickSortFrontPivot
+1000,1
+2000,1
+3000,2
+4000,2
+5000,2
+6000,2
+7000,2
+8000,8
+9000,7
+HalfSortedArray QuickSortFrontPivot
+1000,1
+2000,2
+3000,3
+4000,2
+5000,3
+6000,3
+7000,5
+8000,5
+9000,7
+DuplicateElementsArray QuickSortFrontPivot
+1000,1
+2000,1
+3000,2
+4000,2
+5000,3
+6000,4
+7000,4
+8000,5
+9000,5

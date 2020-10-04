@@ -14,7 +14,7 @@ public class ExperimentController
     public static Integer[] numberOfElements; //the container of the different number of elements
     public static  Integer currentNumbers; //the actual type of array used 
     private static Integer min=0; //minimum number generated 
-    private static Integer max=5000; //maximum number generated
+    private static Integer max=100000; //maximum number generated
     private static Integer seeds=56153333; //the seeds of the random 
 
     public static void main() throws FileNotFoundException {
@@ -23,17 +23,18 @@ public class ExperimentController
         Integer[] mediumData = {1000,2000,3000,4000,5000,6000,7000,8000,9000}; //array containing the  medium elements numbers 
         Integer[] largeData = {10000,20000,30000,40000,50000,60000,70000,80000,90000};//array containing the large elements numbers 
         numberOfElements=largeData; // the curent element numbers 
-       // PrintStream out = new PrintStream(new FileOutputStream("largeData2.txt"));
-        //System.setOut(out); 
-        testInsertionSort();
+        PrintStream out = new PrintStream(new FileOutputStream("QuickSortMedianPivotLargeDataMeasurement.csv"));
+        System.setOut(out); 
+        //testInsertionSort();
         // testBubbleSort();
-        // testMergeSort();
-        // testSelectionSort();
-        // testQuickSortRandomPivot();
-        // testQuickSortFrontPivot();
-        // testQuickSortMedianPivot();
+        //testMergeSort();
+        //testSelectionSort();
+        //testQuickSortRandomPivot();
+        //testQuickSortFrontPivot();
+         testQuickSortMedianPivot();
 
     }
+
     /**
      * Print The arrays 
      */
@@ -56,32 +57,33 @@ public class ExperimentController
      * 
      */
     public static void testInsertionSort() {
+        System.out.println("ReverseSorted Array For InsertionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeInsertionSort());
-        }  
-        System.out.println("ReverseSorted Array For InsertionSort");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeInsertionSort());
+            System.out.println(numberOfElements[currentNumbers]+","+timeInsertionSort());
         }  
         System.out.println("Sorted Array For InsertionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeInsertionSort());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeInsertionSort());
         }  
         System.out.println("RandomListArray InsertionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeInsertionSort());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeInsertionSort());
         }  
         System.out.println("HalfSortedArray InsertionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeInsertionSort());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeInsertionSort());
         }  
         System.out.println("DuplicateElementsArray InsertionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeInsertionSort());
+        }  
+
     }   
 
     /**
@@ -89,32 +91,33 @@ public class ExperimentController
      * 
      */
     public static void testBubbleSort() {
+        System.out.println("ReverseSorted Array For BubbleSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeBubbleSort());
-        }  
-        System.out.println("ReverseSorted Array For BubbleSort");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeBubbleSort());
+            System.out.println(numberOfElements[currentNumbers]+","+timeBubbleSort());
         }  
         System.out.println("Sorted Array For BubbleSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeBubbleSort());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeBubbleSort());
         }  
         System.out.println("RandomListArray BubbleSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeBubbleSort());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeBubbleSort());
         }  
         System.out.println("HalfSortedArray BubbleSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeBubbleSort());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeBubbleSort());
         }  
         System.out.println("DuplicateElementsArray BubbleSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeBubbleSort());
+        }  
+
     } 
 
     /**
@@ -122,32 +125,33 @@ public class ExperimentController
      * 
      */
     public static void testMergeSort() {
+        System.out.println("ReverseSorted Array For MergeSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeMergeSort());
-        }  
-        System.out.println("ReverseSorted Array For MergeSort");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeMergeSort());
+            System.out.println(numberOfElements[currentNumbers]+","+timeMergeSort());
         }  
         System.out.println("Sorted Array For MergeSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeMergeSort());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeMergeSort());
         }  
         System.out.println("RandomListArray MergeSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeMergeSort());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeMergeSort());
         }  
         System.out.println("HalfSortedArray MergeSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeMergeSort());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeMergeSort());
         }  
         System.out.println("DuplicateElementsArray MergeSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeMergeSort());
+        }  
+
     } 
 
     /**
@@ -155,32 +159,33 @@ public class ExperimentController
      * 
      */
     public static void testSelectionSort() {
+        System.out.println("ReverseSorted Array For SelectionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeSelectionSort());
-        }  
-        System.out.println("ReverseSorted Array For SelectionSort");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeSelectionSort());
+            System.out.println(numberOfElements[currentNumbers]+","+timeSelectionSort());
         }  
         System.out.println("Sorted Array For SelectionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeSelectionSort());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeSelectionSort());
         }  
         System.out.println("RandomListArray SelectionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeSelectionSort());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeSelectionSort());
         }  
         System.out.println("HalfSortedArray SelectionSort");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeSelectionSort());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeSelectionSort());
         }  
         System.out.println("DuplicateElementsArray SelectionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeSelectionSort());
+        }  
+
     } 
 
     /**
@@ -188,32 +193,33 @@ public class ExperimentController
      * 
      */
     public static void testQuickSortRandomPivot() {
+        System.out.println("ReverseSorted Array For QuickSortRandomPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeQuickSortRandomPivot());
-        }  
-        System.out.println("ReverseSorted Array For QuickSortRandomPivot");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeQuickSortRandomPivot());
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortRandomPivot());
         }  
         System.out.println("Sorted Array For QuickSortRandomPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeQuickSortRandomPivot());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortRandomPivot());
         }  
         System.out.println("RandomListArray QuickSortRandomPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeQuickSortRandomPivot());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortRandomPivot());
         }  
         System.out.println("HalfSortedArray QuickSortRandomPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeQuickSortRandomPivot());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortRandomPivot());
         }  
         System.out.println("DuplicateElementsArray QuickSortRandomPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortRandomPivot());
+        }  
+
     } 
 
     /**
@@ -221,32 +227,33 @@ public class ExperimentController
      * 
      */
     public static void testQuickSortFrontPivot() {
+        System.out.println("ReverseSorted Array For QuickSortFrontPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeQuickSortFrontPivot());
-        }  
-        System.out.println("ReverseSorted Array For QuickSortFrontPivot");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeQuickSortFrontPivot());
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortFrontPivot());
         }  
         System.out.println("Sorted Array For QuickSortFrontPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeQuickSortFrontPivot());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortFrontPivot());
         }  
         System.out.println("RandomListArray QuickSortFrontPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeQuickSortFrontPivot());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortFrontPivot());
         }  
         System.out.println("HalfSortedArray QuickSortFrontPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeQuickSortFrontPivot());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortFrontPivot());
         }  
         System.out.println("DuplicateElementsArray QuickSortFrontPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortFrontPivot());
+        }  
+
     } 
 
     /**
@@ -254,32 +261,33 @@ public class ExperimentController
      * 
      */
     public static void testQuickSortMedianPivot() {
+        System.out.println("ReverseSorted Array For QuickSortMedianPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
 
             generateReverseSortedArray(); 
-            System.out.println(timeQuickSortMedianPivot());
-        }  
-        System.out.println("ReverseSorted Array For QuickSortMedianPivot");
-        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateSortedArray(); 
-            System.out.println(timeQuickSortMedianPivot());
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortMedianPivot());
         }  
         System.out.println("Sorted Array For QuickSortMedianPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateRandomListArray(); 
-            System.out.println(timeQuickSortMedianPivot());
+            generateSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortMedianPivot());
         }  
         System.out.println("RandomListArray QuickSortMedianPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateHalfSortedArray(); 
-            System.out.println(timeQuickSortMedianPivot());
+            generateRandomListArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortMedianPivot());
         }  
         System.out.println("HalfSortedArray QuickSortMedianPivot");
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            generateDuplicateElementsArray() ;
-            System.out.println(timeQuickSortMedianPivot());
+            generateHalfSortedArray(); 
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortMedianPivot());
         }  
         System.out.println("DuplicateElementsArray QuickSortMedianPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(numberOfElements[currentNumbers]+","+timeQuickSortMedianPivot());
+        }  
+        
     }       
 
     /**
@@ -314,7 +322,6 @@ public class ExperimentController
             array[j] = array.length - 1 - j; 
         }
     } 
-
 
     /**
      * Generate array with partially sorted array 

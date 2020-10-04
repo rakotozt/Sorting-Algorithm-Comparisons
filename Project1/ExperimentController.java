@@ -17,16 +17,23 @@ public class ExperimentController
     private static Integer max=5000; //maximum number generated
     private static Integer seeds=56153333; //the seeds of the random 
 
-    public static void main()  {
+    public static void main() throws FileNotFoundException {
         Integer[] k = {10};
-        Integer[] smallData = {100,200,300,400,500,600,700,800,900};//array containing the small elements numbers 
-        Integer[] mediumData = {1000,2000,3000,4000,5000,6000,7000,8000,9000};//array containing the  medium elements numbers 
-        Integer[] largeData = {10000,20000,30000,40000,50000,60000,70000,80000,90000}; //array containing the large elements numbers 
+        Integer[] smallData = {100,200,300,400,500,600,700,800,900};//{100,200,300,400,500,600,700,800,900};//array containing the small elements numbers 
+        Integer[] mediumData = {1000,2000,3000,4000,5000,6000,7000,8000,9000}; //array containing the  medium elements numbers 
+        Integer[] largeData = {10000,20000,30000,40000,50000,60000,70000,80000,90000};//array containing the large elements numbers 
         numberOfElements=largeData; // the curent element numbers 
+       // PrintStream out = new PrintStream(new FileOutputStream("largeData2.txt"));
+        //System.setOut(out); 
+        testInsertionSort();
+        // testBubbleSort();
+        // testMergeSort();
+        // testSelectionSort();
+        // testQuickSortRandomPivot();
+        // testQuickSortFrontPivot();
+        // testQuickSortMedianPivot();
 
-        testQuickSortMediamPivot();
     }
-
     /**
      * Print The arrays 
      */
@@ -40,31 +47,240 @@ public class ExperimentController
      * 
      */
     public static void writeCSV()throws FileNotFoundException{
-        PrintStream out = new PrintStream(new FileOutputStream("output.csv"));
+        PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
         System.setOut(out); 
     }
 
     /**
-     * Run a test on front sort using different sorting algorithm 
+     * Runs tests on insertion sort with different array charactaristics 
      * 
      */
-    public static void testQuickSortMediamPivot() {
-
+    public static void testInsertionSort() {
         for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
-            // generateSortedArray();
-            // System.out.println("Array Size: "+array.length); 
-            // System.out.println("Sorted Array: "+timeBubbleSort()); 
-            //printArray(); 
+
             generateReverseSortedArray(); 
-            System.out.println("Array Size,"+array.length+","+timeInsertionSort());
-            //generateRandomListArray(); 
-            //System.out.println("Random Array: "+timeQuickSortMedianPivot()); 
-            //generatePartiallySortedArray(); 
-            //System.out.println("Partially Sorted Array: "+timeQuickSortFrontPivot()); 
-
+            System.out.println(timeInsertionSort());
         }  
+        System.out.println("ReverseSorted Array For InsertionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeInsertionSort());
+        }  
+        System.out.println("Sorted Array For InsertionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeInsertionSort());
+        }  
+        System.out.println("RandomListArray InsertionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeInsertionSort());
+        }  
+        System.out.println("HalfSortedArray InsertionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeInsertionSort());
+        }  
+        System.out.println("DuplicateElementsArray InsertionSort");
+    }   
 
-    }    
+    /**
+     * Runs tests on Bubble sort with different array charactaristics 
+     * 
+     */
+    public static void testBubbleSort() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeBubbleSort());
+        }  
+        System.out.println("ReverseSorted Array For BubbleSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeBubbleSort());
+        }  
+        System.out.println("Sorted Array For BubbleSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeBubbleSort());
+        }  
+        System.out.println("RandomListArray BubbleSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeBubbleSort());
+        }  
+        System.out.println("HalfSortedArray BubbleSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeBubbleSort());
+        }  
+        System.out.println("DuplicateElementsArray BubbleSort");
+    } 
+
+    /**
+     * Runs tests on Merge sort with different array charactaristics 
+     * 
+     */
+    public static void testMergeSort() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeMergeSort());
+        }  
+        System.out.println("ReverseSorted Array For MergeSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeMergeSort());
+        }  
+        System.out.println("Sorted Array For MergeSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeMergeSort());
+        }  
+        System.out.println("RandomListArray MergeSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeMergeSort());
+        }  
+        System.out.println("HalfSortedArray MergeSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeMergeSort());
+        }  
+        System.out.println("DuplicateElementsArray MergeSort");
+    } 
+
+    /**
+     * Runs tests on Selection sort with different array charactaristics 
+     * 
+     */
+    public static void testSelectionSort() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeSelectionSort());
+        }  
+        System.out.println("ReverseSorted Array For SelectionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeSelectionSort());
+        }  
+        System.out.println("Sorted Array For SelectionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeSelectionSort());
+        }  
+        System.out.println("RandomListArray SelectionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeSelectionSort());
+        }  
+        System.out.println("HalfSortedArray SelectionSort");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeSelectionSort());
+        }  
+        System.out.println("DuplicateElementsArray SelectionSort");
+    } 
+
+    /**
+     * Runs tests on QuickSortRandomPivot sort with different array charactaristics 
+     * 
+     */
+    public static void testQuickSortRandomPivot() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeQuickSortRandomPivot());
+        }  
+        System.out.println("ReverseSorted Array For QuickSortRandomPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeQuickSortRandomPivot());
+        }  
+        System.out.println("Sorted Array For QuickSortRandomPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeQuickSortRandomPivot());
+        }  
+        System.out.println("RandomListArray QuickSortRandomPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeQuickSortRandomPivot());
+        }  
+        System.out.println("HalfSortedArray QuickSortRandomPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeQuickSortRandomPivot());
+        }  
+        System.out.println("DuplicateElementsArray QuickSortRandomPivot");
+    } 
+
+    /**
+     * Runs tests on QuickSortFrontPivot sort with different array charactaristics 
+     * 
+     */
+    public static void testQuickSortFrontPivot() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeQuickSortFrontPivot());
+        }  
+        System.out.println("ReverseSorted Array For QuickSortFrontPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeQuickSortFrontPivot());
+        }  
+        System.out.println("Sorted Array For QuickSortFrontPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeQuickSortFrontPivot());
+        }  
+        System.out.println("RandomListArray QuickSortFrontPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeQuickSortFrontPivot());
+        }  
+        System.out.println("HalfSortedArray QuickSortFrontPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeQuickSortFrontPivot());
+        }  
+        System.out.println("DuplicateElementsArray QuickSortFrontPivot");
+    } 
+
+    /**
+     * Runs tests on QuickSortMedianPivot sort with different array charactaristics 
+     * 
+     */
+    public static void testQuickSortMedianPivot() {
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+
+            generateReverseSortedArray(); 
+            System.out.println(timeQuickSortMedianPivot());
+        }  
+        System.out.println("ReverseSorted Array For QuickSortMedianPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateSortedArray(); 
+            System.out.println(timeQuickSortMedianPivot());
+        }  
+        System.out.println("Sorted Array For QuickSortMedianPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateRandomListArray(); 
+            System.out.println(timeQuickSortMedianPivot());
+        }  
+        System.out.println("RandomListArray QuickSortMedianPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateHalfSortedArray(); 
+            System.out.println(timeQuickSortMedianPivot());
+        }  
+        System.out.println("HalfSortedArray QuickSortMedianPivot");
+        for (currentNumbers=0; currentNumbers<numberOfElements.length;currentNumbers++){
+            generateDuplicateElementsArray() ;
+            System.out.println(timeQuickSortMedianPivot());
+        }  
+        System.out.println("DuplicateElementsArray QuickSortMedianPivot");
+    }       
 
     /**
      * Generate array with random items  
@@ -99,21 +315,6 @@ public class ExperimentController
         }
     } 
 
-    /**
-     * Generate array with partially sorted array 
-     * 
-     */
-    public static void generatePartiallySortedArray() {
-        Random random = new Random(currentNumbers);
-        array=new Integer[numberOfElements[currentNumbers]];
-
-        for (int j = 0; j < array.length; j = j + 2) {
-
-            array[j] = random.nextInt((max - min) + 1) + min; // Assigns the index a value in the range
-            array[j+1] = array[j]+1;
-        }
-
-    } 
 
     /**
      * Generate array with partially sorted array 
@@ -132,6 +333,28 @@ public class ExperimentController
             array[j] = random.nextInt((max - (array.length/2)) + 1) + (array.length/2);
         }
     } 
+
+    /**
+     * Generate array with random items  
+     * 
+     */
+    public static void generateDuplicateElementsArray() {
+        Random random = new Random(currentNumbers);
+        array=new Integer[numberOfElements[currentNumbers]];
+        int k =0;
+
+        for (int j = 0; j < array.length/2; j ++) {
+
+            array[j] = j;
+        }
+        for (int j = array.length/2; j < array.length; j ++) {
+            k++;
+            array[j] = random.nextInt((max - (array.length/2)) + 1) + (array.length/2);
+            if(k%2 ==0){
+                array[j]=array[j-1];
+            }
+        }
+    }
 
     /**
      * Returns time to quick sort an array using a random number as pivot 

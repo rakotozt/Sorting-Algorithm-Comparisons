@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=ExperimentController
-comment0.text=\r\n\ \r\n\r\n\ @author\ Tafita\ Rakotozandry\ \r\n\ @version1\r\n
+comment0.text=\r\n\ Abstract\ class\ for\ the\ Experiment\ Controller\ for\ Reference\ Type\ Data\ \ \r\n\r\n\ @author\ Tafita\ Rakotozandry\ &\ Khalid\ Al-Motaery\r\n\ @version1\r\n
 comment1.params=
-comment1.target=void\ main()
+comment1.target=ExperimentController()
 comment10.params=
 comment10.target=void\ testQuickSortMedianPivot()
 comment10.text=\r\n\ Runs\ tests\ on\ QuickSortMedianPivot\ sort\ with\ different\ array\ charactaristics\ \r\n\ \r\n

@@ -1,6 +1,13 @@
 #BlueJ class context
 comment0.target=QuickSortRandomPivot
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ QuickSortMedianPivot\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Quick\ Sort\ with\ Random\ Pivot\ \r\n\r\n\ @author\ Tafita\ Rakotozandry\ &\ Khalid\ Al-Motaery\r\n\ @version1\r\n
 comment1.params=A\ low\ high
 comment1.target=java.lang.Comparable\ getPivot(java.lang.Comparable[],\ int,\ int)
-numComments=2
+comment1.text=\r\n\ Get\ the\ first\ element\ as\ pivot\ \ \r\n\r\n\ @param\ A\ array\r\n\ @param\ low\ lowest\ index\r\n\ @param\ high\ highest\ index\ \r\n
+comment2.params=A\ low\ high
+comment2.target=int\ getPivot(int[],\ int,\ int)
+comment2.text=\r\n\ Get\ the\ first\ element\ as\ pivot\ \ \r\n\r\n\ @param\ A\ array\r\n\ @param\ low\ lowest\ index\r\n\ @param\ high\ highest\ index\ \r\n
+comment3.params=A\ low\ high\ c
+comment3.target=java.lang.Object\ getPivot(java.lang.Object[],\ int,\ int,\ java.util.Comparator)
+comment3.text=\r\n\ Get\ the\ first\ element\ as\ pivot\ \ \r\n\r\n\ @param\ A\ array\r\n\ @param\ low\ lowest\ index\r\n\ @param\ high\ highest\ index\ \r\n\ @param\ c\ Comparator\ \r\n
+numComments=4

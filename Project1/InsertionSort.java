@@ -1,3 +1,11 @@
+import java.util.*;
+/**
+ * Insertion Sort Implementation
+ *  This program was copied from the Prof. Ge Xia's lecture
+ *   
+ * @author Tafita Rakotozandry & Khalid Al-Motaery
+ * @version1
+ */
 public class InsertionSort <T extends Comparable <? super T>> implements Sorter <T> {
 
     /**
@@ -5,23 +13,69 @@ public class InsertionSort <T extends Comparable <? super T>> implements Sorter 
      */
     public InsertionSort() {}
 
-
-    public void sort(T[] A) {
-      for (int nextPos = 1; nextPos < A.length; nextPos++) {
-        insert(A, nextPos); 
-      } 
-
+    public <T extends Comparable<? super T>> void sort (T[] a) {
+        for (int nextPos = 1;
+        nextPos < a.length;
+        nextPos++) {
+            insert(a, nextPos);
+        }
     }
-    
-   
-    private void insert (T[] A, int nextPos) {
-        T nextVal = A[nextPos]; 
-         
-        while (nextPos > 0 && nextVal.compareTo(A[nextPos-1]) < 0) { 
-            A[nextPos] = A[nextPos-1]; 
+
+    /**
+     * Implements insertion sort comparison 
+     */
+    private static <T extends Comparable<? super T>> void insert (T[] a, int nextPos) {
+        T nextVal = a[nextPos];
+        while
+        (nextPos > 0 &&
+        nextVal.compareTo(a[nextPos-1]) < 0){
+            a[nextPos] = a[nextPos-1];
             nextPos--;
         }
-        
-        A[nextPos] = nextVal; 
+        a[nextPos]=  nextVal;}
+
+    public  void sort (int[] a) {
+        for (int nextPos = 1;
+        nextPos < a.length;
+        nextPos++) {
+            insert(a, nextPos);
+        }
+    }      
+
+    private static <T extends Comparable<? super T>> void insert (int[] a, int nextPos) {
+        int nextVal = a[nextPos];
+        while
+        (nextPos > 0 &&
+        nextVal<a[nextPos-1] ){
+            a[nextPos] = a[nextPos-1];
+            nextPos--;
+        }
+        a[nextPos]=  nextVal;}
+
+    /**
+     * Sort an array of objects using comparator. 
+     *
+     * @param  a  an array of objects
+     * @param  c  a comparator object
+     */ 
+    public <T> void sort (T[] a, Comparator<T> c){
+        for (int nextPos = 1;
+        nextPos < a.length;
+        nextPos++) {
+            insert(a, nextPos,c);
+
+        }
+
     }
+
+    public <T> void insert (T[] a, int nextPos, Comparator<T> c) {
+        T nextVal = a[nextPos];
+        while
+        (nextPos > 0 &&
+        c.compare(nextVal,a[nextPos-1]) < 0){
+            a[nextPos] = a[nextPos-1];
+            nextPos--;
+        }
+        a[nextPos]=  nextVal;}
+
 }

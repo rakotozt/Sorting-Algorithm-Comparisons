@@ -1,5 +1,13 @@
 #BlueJ class context
 comment0.target=Sorter
-comment1.params=A
-comment1.target=void\ sort(java.lang.Object[])
-numComments=2
+comment0.text=\r\n\ Sorter\ Interface\r\n\r\n\ @author\ Tafita\ Rakotozandry\ &\ Khalid\ Al-Motaery\r\n\ @version1\r\n
+comment1.params=a
+comment1.target=void\ sort(int[])
+comment1.text=\r\n\ Sort\ an\ array\ of\ ints.\ \r\n\r\n\ @param\ \ a\ \ an\ array\ of\ ints\r\n
+comment2.params=a
+comment2.target=void\ sort(java.lang.Comparable[])
+comment2.text=\r\n\ Sort\ an\ array\ of\ comparable\ objects.\ \r\n\r\n\ @param\ \ a\ \ an\ array\ of\ comparable\ objects\r\n
+comment3.params=a\ c
+comment3.target=void\ sort(java.lang.Object[],\ java.util.Comparator)
+comment3.text=\r\n\ Sort\ an\ array\ of\ objects\ using\ comparator.\ \r\n\r\n\ @param\ \ a\ \ an\ array\ of\ objects\r\n\ @param\ \ c\ \ a\ comparator\ object\r\n
+numComments=4

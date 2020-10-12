@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=StringExperimentController
+comment0.text=\r\n\ Test\ the\ sorting\ algorithm\ usign\ String\ \ \r\n\r\n\ @author\ Tafita\ Rakotozandry\ &\ Khalid\ Al-Motaery\r\n\ @version1\r\n
+comment1.params=
+comment1.target=void\ main()
+comment2.params=
+comment2.target=StringExperimentController()
+comment2.text=\r\n\ Test\ the\ sorting\ algorithm\ usign\ String\ \ \r\n
+comment3.params=
+comment3.target=java.lang.String\ generateRandomString()
+comment4.params=
+comment4.target=void\ generateRandomListArray()
+comment4.text=\r\n\ Generate\ array\ with\ random\ items\ \ \r\n\ \r\n
+comment5.params=
+comment5.target=void\ generateSortedArray()
+comment5.text=\r\n\ Generate\ array\ with\ sorted\ items\ \ \r\n\ \r\n
+comment6.params=
+comment6.target=void\ generateReverseSortedArray()
+comment6.text=\r\n\ Generate\ array\ with\ reverse\ sorted\ items\r\n\ \r\n
+comment7.params=
+comment7.target=void\ generateHalfSortedArray()
+comment7.text=\r\n\ Generate\ array\ with\ partially\ sorted\ array\ \r\n\ \r\n
+comment8.params=
+comment8.target=void\ generateDuplicateElementsArray()
+comment8.text=\r\n\ Generate\ array\ with\ random\ items\ \ \r\n\ \r\n
+numComments=9

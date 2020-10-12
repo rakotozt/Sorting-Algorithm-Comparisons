@@ -1,10 +1,21 @@
 #BlueJ class context
 comment0.target=InsertionSort
+comment0.text=\r\n\ Insertion\ Sort\ Implementation\r\n\ \ This\ program\ was\ copied\ from\ the\ Prof.\ Ge\ Xia's\ lecture\r\n\ \ \ \r\n\ @author\ Tafita\ Rakotozandry\ &\ Khalid\ Al-Motaery\r\n\ @version1\r\n
 comment1.params=
 comment1.target=InsertionSort()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ InsertionSort\r\n
-comment2.params=A
+comment2.params=a
 comment2.target=void\ sort(java.lang.Comparable[])
-comment3.params=A\ nextPos
+comment3.params=a\ nextPos
 comment3.target=void\ insert(java.lang.Comparable[],\ int)
-numComments=4
+comment3.text=\r\n\ Implements\ insertion\ sort\ comparison\ \r\n
+comment4.params=a
+comment4.target=void\ sort(int[])
+comment5.params=a\ nextPos
+comment5.target=void\ insert(int[],\ int)
+comment6.params=a\ c
+comment6.target=void\ sort(java.lang.Object[],\ java.util.Comparator)
+comment6.text=\r\n\ Sort\ an\ array\ of\ objects\ using\ comparator.\ \r\n\r\n\ @param\ \ a\ \ an\ array\ of\ objects\r\n\ @param\ \ c\ \ a\ comparator\ object\r\n
+comment7.params=a\ nextPos\ c
+comment7.target=void\ insert(java.lang.Object[],\ int,\ java.util.Comparator)
+numComments=8

@@ -50,4 +50,14 @@ public class QuickSortFrontPivotTest
         assertEquals(Arrays.toString(arr), Arrays.toString(arr2));
     }
 
+        @Test
+    public void TestFrontPivotInt()
+    {
+        QuickSortFrontPivot q=new QuickSortFrontPivot();
+        QuickSortFrontPivot qs = new QuickSortFrontPivot();
+        int [] arr=new int [] {9, 0, 1, 3, 4, 5, 2, 9, 8, 7, 6, 5, 9, 1, 0, 9};
+        int [] arr2=new int [] {0, 0, 1, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9, 9};
+        qs.sort(arr); 
+        assertEquals(Arrays.toString(arr), Arrays.toString(arr2));
+    }
 }
